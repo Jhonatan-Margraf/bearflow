@@ -7,8 +7,8 @@ const Navbar = () => {
 
   const links = [
     { href: "#solucoes", label: "Soluções" },
-    { href: "#cases", label: "Projetos" },
     { href: "#como-funciona", label: "Processo" },
+    { href: "#cases", label: "Projetos" },
     { href: "#sobre", label: "Sobre" },
     { href: "#faq", label: "Perguntas" },
   ];
