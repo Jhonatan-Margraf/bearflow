@@ -2,10 +2,11 @@ import { MessageCircle } from "lucide-react";
 
 interface WhatsAppButtonProps {
   size?: "default" | "lg";
+  label?: string;
   className?: string;
 }
 
-const WhatsAppButton = ({ size = "default", className = "" }: WhatsAppButtonProps) => {
+const WhatsAppButton = ({ size = "default", label = "Falar no WhatsApp", className = "" }: WhatsAppButtonProps) => {
   const sizeClasses =
     size === "lg" ? "px-8 py-4 text-lg gap-3" : "px-5 py-2.5 text-sm gap-2";
 
@@ -30,7 +31,7 @@ const WhatsAppButton = ({ size = "default", className = "" }: WhatsAppButtonProp
       }}
     >
       <MessageCircle className={size === "lg" ? "w-6 h-6" : "w-4 h-4"} />
-      Falar no WhatsApp
+      {label}
     </a>
   );
 };

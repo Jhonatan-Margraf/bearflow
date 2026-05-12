@@ -29,7 +29,7 @@ const items = [
 ];
 
 const ProblemsSection = () => (
-  <section className="py-28 bg-background">
+  <section id="solucoes" className="py-28 bg-background">
     <div className="container mx-auto px-4">
       <AnimatedSection className="text-center mb-16 max-w-3xl mx-auto">
         <p className="text-sm font-semibold highlight uppercase tracking-widest mb-3">Soluções</p>

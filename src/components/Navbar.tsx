@@ -6,11 +6,11 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const links = [
+    { href: "#solucoes", label: "Soluções" },
     { href: "#cases", label: "Projetos" },
-    { href: "#como-funciona", label: "Como funciona" },
+    { href: "#como-funciona", label: "Processo" },
     { href: "#sobre", label: "Sobre" },
-    { href: "#tecnologias", label: "Tecnologias" },
-    { href: "#contato", label: "Contato" },
+    { href: "#faq", label: "Perguntas" },
   ];
 
   return (
@@ -33,7 +33,7 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <WhatsAppButton />
+          <WhatsAppButton label="Entre em contato" />
         </div>
 
         <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-1">
@@ -53,7 +53,7 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <WhatsAppButton />
+          <WhatsAppButton label="Entre em contato" />
         </div>
       )}
     </nav>

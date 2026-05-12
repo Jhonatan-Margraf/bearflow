@@ -11,8 +11,8 @@ const AnimatedSection = ({ children, className = "", delay = 0 }: AnimatedSectio
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.6, delay, ease: "easeOut" }}
+    viewport={{ once: false, margin: "-60px" }}
+    transition={{ duration: 0.5, delay, ease: "easeOut" }}
     className={className}
   >
     {children}
