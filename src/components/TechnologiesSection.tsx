@@ -10,8 +10,8 @@ const techs = [
   { name: "Flutter", icon: flutterIcon },
   { name: "Python", icon: pythonIcon },
   { name: "Figma", icon: figmaIcon },
-  { name: "Inteligência Artificial", icon: iaIcon },
-  { name: "Visão Computacional", icon: visionIcon },
+  { name: "IA & ML", icon: iaIcon },
+  { name: "Visão Comp.", icon: visionIcon },
   { name: "APIs REST", emoji: "🔗" },
   { name: "Sistemas Web", emoji: "💻" },
   { name: "Apps Mobile", emoji: "📲" },
@@ -29,10 +29,10 @@ const TechnologiesSection = () => (
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
         {techs.map((tech, i) => (
-          <AnimatedSection key={i} delay={i * 0.05}>
+          <AnimatedSection key={i} delay={i * 0.05} className="h-full">
             <motion.div
               whileHover={{ scale: 1.04 }}
-              className="rounded-xl p-5 text-center border transition-colors duration-200 cursor-default"
+              className="rounded-xl p-5 text-center border transition-colors duration-200 cursor-default h-full flex flex-col items-center justify-center min-h-[110px]"
               style={{ background: "var(--bg-2)", borderColor: "var(--bd-2)" }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLDivElement).style.background = "#21262d";
@@ -53,7 +53,7 @@ const TechnologiesSection = () => (
               ) : (
                 <span className="text-3xl block mb-3">{tech.emoji}</span>
               )}
-              <span className="text-sm font-semibold text-muted-foreground">{tech.name}</span>
+              <span className="text-sm font-semibold text-muted-foreground leading-tight">{tech.name}</span>
             </motion.div>
           </AnimatedSection>
         ))}

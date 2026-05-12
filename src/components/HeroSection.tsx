@@ -67,14 +67,14 @@ const HeroSection = () => (
 
           <h1
             className="font-display font-bold leading-[1.06] tracking-tight"
-            style={{ fontSize: "clamp(2.4rem, 4.2vw, 3.5rem)", color: "#e6edf3" }}
+            style={{ fontSize: "clamp(2.6rem, 4.8vw, 4rem)", color: "#e6edf3" }}
           >
             Força na entrega.<br />
             Fluidez no{" "}
             <span className="gradient-text">processo.</span>
           </h1>
 
-          <p className="text-base text-muted-foreground leading-relaxed max-w-md">
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
             Desenvolvemos sites, sistemas e aplicativos personalizados para pequenas e médias
             empresas — sem burocracia, com proximidade real e resultado concreto.
           </p>
@@ -83,7 +83,7 @@ const HeroSection = () => (
             <WhatsAppButton size="default" />
             <a
               href="#cases"
-              className="inline-flex items-center gap-1.5 font-medium text-sm px-5 py-2.5 rounded-full border transition-colors duration-200"
+              className="inline-flex items-center gap-1.5 font-medium text-base px-6 py-3 rounded-full border transition-colors duration-200"
               style={{
                 color: "#e6edf3",
                 borderColor: "var(--bd-2)",
@@ -112,7 +112,7 @@ const HeroSection = () => (
           <img
             src="/Devices-pana.svg"
             alt="Devices"
-            className="w-full max-w-lg"
+            className="w-full"
           />
         </motion.div>
       </div>
@@ -127,7 +127,7 @@ const HeroSection = () => (
         {features.map((f, i) => (
           <motion.div
             key={i}
-            className="flex items-start gap-3 px-7 py-5 transition-colors duration-150"
+            className="flex items-start gap-4 px-8 py-7 transition-colors duration-150"
             style={{
               borderRight: i < features.length - 1 ? "1px solid #21262d" : "none",
             }}
@@ -137,19 +137,19 @@ const HeroSection = () => (
             whileHover={{ backgroundColor: "#161b22" }}
           >
             <div
-              className="navy-icon-box w-9 h-9 shrink-0 mt-0.5"
+              className="navy-icon-box w-11 h-11 shrink-0 mt-0.5"
               style={{ color: "var(--silver)" }}
             >
-              <f.icon className="w-4 h-4" />
+              <f.icon className="w-5 h-5" />
             </div>
             <div>
               <h4
-                className="font-display font-semibold text-sm mb-0.5"
+                className="font-display font-semibold text-base mb-1"
                 style={{ color: "#e6edf3" }}
               >
                 {f.title}
               </h4>
-              <p className="text-xs text-muted-foreground leading-snug">{f.description}</p>
+              <p className="text-sm text-muted-foreground leading-snug">{f.description}</p>
             </div>
           </motion.div>
         ))}
