@@ -17,33 +17,61 @@ interface CaseCardProps {
 const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt, delay }: CaseCardProps) => (
   <AnimatedSection delay={delay}>
     <motion.div
-      whileHover={{ y: -6, scale: 1.03 }}
-      className="group bg-card rounded-2xl shadow-md hover:shadow-xl border border-border/50 overflow-hidden transition-shadow duration-300"
+      whileHover={{ y: -5 }}
+      className="group rounded-2xl overflow-hidden border transition-colors duration-200 h-full flex flex-col"
+      style={{ background: "var(--bg-2)", borderColor: "var(--bd-2)" }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLDivElement).style.background = "#21262d";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLDivElement).style.background = "var(--bg-2)";
+      }}
     >
-      <div className="bg-muted h-64 border-b border-border/50 p-3 overflow-hidden">
+      <div
+        className="h-52 border-b overflow-hidden"
+        style={{ borderColor: "var(--bd-2)", background: "#161b22" }}
+      >
         <img
           src={imageSrc}
           alt={imageAlt}
-          className="w-full h-full object-contain object-center rounded-md bg-background transition-transform duration-500 ease-out group-hover:scale-125 cursor-zoom-in"
+          className="w-full h-full object-contain object-center p-3 transition-transform duration-500 ease-out group-hover:scale-110"
           loading="lazy"
         />
       </div>
 
-      <div className="p-8">
-        <h3 className="text-xl font-bold mb-3 gradient-text">{headline}</h3>
-        <p className="text-muted-foreground mb-4">{description}</p>
+      <div className="p-7 flex flex-col flex-1">
+        <h3 className="text-lg font-bold font-display mb-3 gradient-text">{headline}</h3>
+        <p className="text-muted-foreground mb-5 text-base leading-relaxed">{description}</p>
 
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-foreground mb-2">Funcionalidades:</h4>
-          <ul className="space-y-1 text-sm text-muted-foreground">
-            {features.map((f, i) => <li key={i}>• {f}</li>)}
+        <div className="mb-5">
+          <h4 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">
+            Funcionalidades
+          </h4>
+          <ul className="space-y-1.5 text-sm text-muted-foreground">
+            {features.map((f, i) => (
+              <li key={i} className="flex items-start gap-1.5">
+                <span style={{ color: "var(--silver-dim)" }}>→</span> {f}
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
-          <h4 className="text-sm font-semibold text-primary mb-2">Valor entregue:</h4>
-          <ul className="space-y-1 text-sm text-muted-foreground">
-            {values.map((v, i) => <li key={i}>✓ {v}</li>)}
+        <div
+          className="rounded-xl p-4 border mt-auto"
+          style={{
+            background: "rgba(0, 31, 63, 0.22)",
+            borderColor: "rgba(0, 31, 63, 0.5)",
+          }}
+        >
+          <h4 className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "var(--silver-dim)" }}>
+            Valor entregue
+          </h4>
+          <ul className="space-y-1.5 text-sm text-muted-foreground">
+            {values.map((v, i) => (
+              <li key={i} className="flex items-start gap-1.5">
+                <span style={{ color: "var(--silver)" }}>✓</span> {v}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -52,14 +80,16 @@ const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt,
 );
 
 const CasesSection = () => (
-  <section id="cases" className="py-24">
+  <section id="cases" className="py-28 bg-background">
     <div className="container mx-auto px-4">
       <AnimatedSection className="text-center mb-16">
-        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Portfólio</p>
-        <h2 className="text-3xl md:text-4xl font-bold">Cases de <span className="gradient-text">Projetos</span></h2>
+        <p className="text-sm font-semibold highlight uppercase tracking-widest mb-3">Portfólio</p>
+        <h2 className="text-3xl md:text-4xl font-bold font-display">
+          Cases de <span className="gradient-text">Projetos</span>
+        </h2>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         <CaseCard
           delay={0.1}
           headline="Inteligência artificial aplicada à suinocultura."

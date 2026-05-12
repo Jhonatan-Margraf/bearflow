@@ -1,11 +1,11 @@
-import bearLogoSVG from "@/assets/bear-logo.svg";
-
 const Footer = () => (
-  <footer className="py-8 border-t border-border/50">
+  <footer className="py-7 border-t border-border">
     <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div className="flex items-center gap-2">
-        <img src={bearLogoSVG} alt="Bear Flow" className="w-9 h-9" />
-        <span className="text-sm font-semibold gradient-text">Bear Flow</span>
+      <div className="flex items-center gap-2.5">
+        <img src="/bearlogo.png" alt="Bear Flow" className="w-8 h-8 object-contain" />
+        <span className="text-base font-bold font-display text-foreground">
+          Bear <span className="highlight">Flow</span>
+        </span>
       </div>
       <p className="text-sm text-muted-foreground">
         © {new Date().getFullYear()} Bear Flow. Todos os direitos reservados.
