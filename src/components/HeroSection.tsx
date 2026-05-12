@@ -1,12 +1,36 @@
 import { motion } from "framer-motion";
+import { Shield, Zap, Code2, Users } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 
+const features = [
+  {
+    icon: Shield,
+    title: "Seguro",
+    description: "Segurança por design, integrada a cada solução.",
+  },
+  {
+    icon: Zap,
+    title: "Eficiente",
+    description: "Desempenho otimizado para escala no mundo real.",
+  },
+  {
+    icon: Code2,
+    title: "Escalável",
+    description: "Arquitetura flexível que cresce com você.",
+  },
+  {
+    icon: Users,
+    title: "Confiável",
+    description: "Qualidade consistente e suporte de longo prazo.",
+  },
+];
+
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden pt-16">
-    {/* Dot grid background */}
+  <section id="home" className="relative min-h-screen flex flex-col justify-center bg-background overflow-hidden pt-16">
+    {/* Dot grid */}
     <div className="dot-grid" />
 
-    {/* Navy glow — top right */}
+    {/* Glow top-right */}
     <div
       className="absolute pointer-events-none"
       style={{
@@ -18,56 +42,134 @@ const HeroSection = () => (
         background: "radial-gradient(circle, rgba(0,31,63,0.32) 0%, transparent 70%)",
       }}
     />
-    {/* Navy glow — bottom left */}
+
+    {/* 2-column split */}
+    <div className="relative z-10 w-full max-w-[1160px] mx-auto px-8 py-20 flex-1 flex items-center">
+      <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+
+        {/* Left — text */}
+        <motion.div
+          className="flex flex-col gap-6"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <span
+            className="text-xs font-semibold uppercase tracking-[0.14em] flex items-center gap-2"
+            style={{ color: "var(--silver)" }}
+          >
+            <span
+              className="inline-block w-6 h-px opacity-50"
+              style={{ background: "var(--silver)" }}
+            />
+            Desenvolvimento de Software
+          </span>
+
+          <h1
+            className="font-display font-bold leading-[1.06] tracking-tight"
+            style={{ fontSize: "clamp(2.4rem, 4.2vw, 3.5rem)", color: "#e6edf3" }}
+          >
+            Força na entrega.<br />
+            Fluidez no{" "}
+            <span className="gradient-text">processo.</span>
+          </h1>
+
+          <p className="text-base text-muted-foreground leading-relaxed max-w-md">
+            Desenvolvemos sites, sistemas e aplicativos personalizados para pequenas e médias
+            empresas — sem burocracia, com proximidade real e resultado concreto.
+          </p>
+
+          <div className="flex flex-wrap gap-3 items-center">
+            <WhatsAppButton size="default" />
+            <a
+              href="#cases"
+              className="inline-flex items-center gap-1.5 font-medium text-sm px-5 py-2.5 rounded-full border transition-colors duration-200"
+              style={{
+                color: "#e6edf3",
+                borderColor: "var(--bd-2)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--silver-dim)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "var(--silver)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--bd-2)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "#e6edf3";
+              }}
+            >
+              Ver projetos →
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Right — bear logo visual */}
+        <motion.div
+          className="hidden md:flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.88 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+        >
+          <div className="relative w-72 h-72 flex items-center justify-center">
+            {/* Outer glow ring */}
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(0,31,63,0.45) 0%, transparent 70%)",
+              }}
+            />
+            {/* Dashed orbit */}
+            <div
+              className="absolute inset-4 rounded-full"
+              style={{
+                border: "1px dashed rgba(48,54,61,0.6)",
+              }}
+            />
+            <img
+              src="/bearlogo.png"
+              alt="Bear Flow"
+              className="relative z-10 w-52 h-52 object-contain drop-shadow-2xl"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </div>
+
+    {/* Feature strip */}
     <div
-      className="absolute pointer-events-none"
-      style={{
-        bottom: "-60px",
-        left: "-40px",
-        width: "400px",
-        height: "400px",
-        borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(0,31,63,0.2) 0%, transparent 70%)",
-      }}
-    />
-
-    <div className="container mx-auto px-4 text-center relative z-10">
-      <motion.img
-        src="/bearlogo.png"
-        alt="Bear Flow Logo"
-        className="w-28 h-28 mx-auto mb-8 object-contain"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-      />
-
-      <motion.h1
-        className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-4xl mx-auto mb-6 font-display"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-      >
-        Tecnologia sob medida para negócios que querem{" "}
-        <span className="gradient-text">crescer.</span>
-      </motion.h1>
-
-      <motion.p
-        className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        Desenvolvimento de sites, sistemas e aplicativos personalizados que transformam
-        processos manuais em soluções digitais eficientes e lucrativas.
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-      >
-        <WhatsAppButton size="lg" />
-      </motion.div>
+      className="relative z-10 w-full border-t"
+      style={{ borderColor: "var(--bd-1, #21262d)" }}
+    >
+      <div className="max-w-[1160px] mx-auto grid grid-cols-2 lg:grid-cols-4">
+        {features.map((f, i) => (
+          <motion.div
+            key={i}
+            className="flex items-start gap-3 px-7 py-5 transition-colors duration-150"
+            style={{
+              borderRight: i < features.length - 1 ? "1px solid #21262d" : "none",
+            }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
+            whileHover={{ backgroundColor: "#161b22" }}
+          >
+            <div
+              className="navy-icon-box w-9 h-9 shrink-0 mt-0.5"
+              style={{ color: "var(--silver)" }}
+            >
+              <f.icon className="w-4 h-4" />
+            </div>
+            <div>
+              <h4
+                className="font-display font-semibold text-sm mb-0.5"
+                style={{ color: "#e6edf3" }}
+              >
+                {f.title}
+              </h4>
+              <p className="text-xs text-muted-foreground leading-snug">{f.description}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   </section>
 );
