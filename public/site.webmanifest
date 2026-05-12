@@ -8,7 +8,7 @@
   "theme_color": "#0d1117",
   "icons": [
     {
-      "src": "/bearlogo.png",
+      "src": "/favicon.png",
       "sizes": "any",
       "type": "image/png",
       "purpose": "any maskable"
