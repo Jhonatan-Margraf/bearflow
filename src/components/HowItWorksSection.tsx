@@ -111,7 +111,7 @@ const HowItWorksSection = () => (
           delay={0.2}
         >
           <img
-            src="/Completed steps-pana.svg"
+            src="/Completed-steps-pana.svg"
             alt="Etapas concluídas"
             className="w-full max-w-xs"
           />

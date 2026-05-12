@@ -36,7 +36,7 @@ const AboutSection = () => (
         {/* Left — Live collaboration illustration */}
         <AnimatedSection className="hidden lg:flex items-center justify-center" delay={0.05}>
           <img
-            src="/Live collaboration-rafiki.svg"
+            src="/Live-collaboration-rafiki.svg"
             alt="Colaboração em tempo real"
             className="w-full max-w-sm"
           />

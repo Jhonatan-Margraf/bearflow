@@ -25,7 +25,7 @@ const ContactSection = () => (
           delay={0.15}
         >
           <img
-            src="/Contact us-bro.svg"
+            src="/Contact-us-bro.svg"
             alt="Entre em contato"
             className="w-full max-w-md"
           />
