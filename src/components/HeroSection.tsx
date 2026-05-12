@@ -102,34 +102,18 @@ const HeroSection = () => (
           </div>
         </motion.div>
 
-        {/* Right — bear logo visual */}
+        {/* Right — Devices illustration */}
         <motion.div
           className="hidden md:flex items-center justify-center"
-          initial={{ opacity: 0, scale: 0.88 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <div className="relative w-72 h-72 flex items-center justify-center">
-            {/* Outer glow ring */}
-            <div
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: "radial-gradient(circle, rgba(0,31,63,0.45) 0%, transparent 70%)",
-              }}
-            />
-            {/* Dashed orbit */}
-            <div
-              className="absolute inset-4 rounded-full"
-              style={{
-                border: "1px dashed rgba(48,54,61,0.6)",
-              }}
-            />
-            <img
-              src="/bearlogo.png"
-              alt="Bear Flow"
-              className="relative z-10 w-52 h-52 object-contain drop-shadow-2xl"
-            />
-          </div>
+          <img
+            src="/Devices-pana.svg"
+            alt="Devices"
+            className="w-full max-w-lg"
+          />
         </motion.div>
       </div>
     </div>

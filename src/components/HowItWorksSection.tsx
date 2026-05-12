@@ -42,64 +42,80 @@ const HowItWorksSection = () => (
         </p>
       </AnimatedSection>
 
-      <div className="relative max-w-[960px] mx-auto">
-        {/* Connecting line — alinhada ao centro do icon box (40px / 2 = 20px) */}
-        <div
-          className="hidden lg:block absolute h-px z-0"
-          style={{
-            top: "20px",
-            left: "calc(12.5% + 10px)",
-            right: "calc(12.5% + 10px)",
-            background: "var(--bd-2)",
-          }}
-        />
+      {/* Steps + illustration side by side on large screens */}
+      <div className="grid xl:grid-cols-[1fr_320px] gap-12 items-center max-w-6xl mx-auto">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, i) => (
-            <AnimatedSection key={i} delay={i * 0.08}>
-              <div className="group text-center">
+        {/* Steps grid */}
+        <div className="relative">
+          {/* Connecting line — only on xl (4-column layout) */}
+          <div
+            className="hidden xl:block absolute h-px z-0"
+            style={{
+              top: "20px",
+              left: "calc(12.5% + 10px)",
+              right: "calc(12.5% + 10px)",
+              background: "var(--bd-2)",
+            }}
+          />
 
-                {/* Icon box — centralizado, z-index acima da linha */}
-                <div
-                  className="relative z-10 w-10 h-10 mx-auto mb-3 rounded-lg grid place-items-center transition-colors duration-200"
-                  style={{
-                    background: "var(--bg-2)",
-                    border: "1px solid var(--bd-2)",
-                    color: "var(--silver)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.background = "var(--navy-t)";
-                    (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(0,31,63,0.8)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.background = "var(--bg-2)";
-                    (e.currentTarget as HTMLDivElement).style.borderColor = "var(--bd-2)";
-                  }}
-                >
-                  <step.icon className="w-4 h-4" />
+          <div className="grid grid-cols-2 xl:grid-cols-4 gap-8">
+            {steps.map((step, i) => (
+              <AnimatedSection key={i} delay={i * 0.08}>
+                <div className="group text-center">
+                  {/* Icon box */}
+                  <div
+                    className="relative z-10 w-10 h-10 mx-auto mb-3 rounded-lg grid place-items-center transition-colors duration-200"
+                    style={{
+                      background: "var(--bg-2)",
+                      border: "1px solid var(--bd-2)",
+                      color: "var(--silver)",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.background = "var(--navy-t)";
+                      (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(0,31,63,0.8)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.background = "var(--bg-2)";
+                      (e.currentTarget as HTMLDivElement).style.borderColor = "var(--bd-2)";
+                    }}
+                  >
+                    <step.icon className="w-4 h-4" />
+                  </div>
+
+                  {/* Número */}
+                  <p
+                    className="text-[0.65rem] font-medium mb-4 tracking-widest"
+                    style={{
+                      color: "var(--silver-dim)",
+                      fontFamily: "'DM Mono', monospace",
+                    }}
+                  >
+                    0{i + 1}
+                  </p>
+
+                  <h3 className="font-display font-semibold text-[0.93rem] mb-2 text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="text-[0.82rem] text-muted-foreground leading-[1.55]">
+                    {step.description}
+                  </p>
                 </div>
-
-                {/* Número pequeno abaixo do ícone */}
-                <p
-                  className="text-[0.65rem] font-medium mb-4 tracking-widest"
-                  style={{
-                    color: "var(--silver-dim)",
-                    fontFamily: "'DM Mono', monospace",
-                  }}
-                >
-                  0{i + 1}
-                </p>
-
-                <h3 className="font-display font-semibold text-[0.93rem] mb-2 text-foreground">
-                  {step.title}
-                </h3>
-                <p className="text-[0.82rem] text-muted-foreground leading-[1.55]">
-                  {step.description}
-                </p>
-              </div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
+
+        {/* Illustration — right side, hidden on smaller screens */}
+        <AnimatedSection
+          className="hidden xl:flex items-center justify-center"
+          delay={0.2}
+        >
+          <img
+            src="/Completed steps-pana.svg"
+            alt="Etapas concluídas"
+            className="w-full max-w-xs"
+          />
+        </AnimatedSection>
       </div>
     </div>
   </section>
