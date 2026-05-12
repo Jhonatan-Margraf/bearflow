@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Altere o domínio abaixo após publicar
-Sitemap: https://bearflow.com.br/sitemap.xml
+Sitemap: https://bearflow.dev/sitemap.xml
