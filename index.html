@@ -3,16 +3,161 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/png" sizes="32x32" href="/bearlogo.png" />
     <link rel="shortcut icon" type="image/png" href="/bearlogo.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/bearlogo.png" />
-    <title>Bear Flow | Tecnologia sob medida para negócios</title>
-    <meta name="description" content="Desenvolvimento de sites, sistemas e aplicativos personalizados que transformam processos manuais em soluções digitais eficientes." />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0d1117" />
+
+    <!-- Google Fonts preconnect (performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ── SEO primário ── -->
+    <title>Bear Flow | Desenvolvimento de Software sob Medida</title>
+    <meta name="description" content="Bear Flow desenvolve sites, sistemas web e aplicativos mobile personalizados para pequenas e médias empresas. Tecnologia com IA, Flutter e Python — sem burocracia, com resultado concreto." />
+    <meta name="keywords" content="desenvolvimento de software, sites para empresas, aplicativos mobile, sistemas web personalizados, desenvolvimento Flutter, Python, inteligência artificial, visão computacional, software sob medida, Bear Flow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content="Bear Flow" />
-    <meta property="og:title" content="Bear Flow | Tecnologia sob medida para negócios" />
-    <meta property="og:description" content="Desenvolvimento de sites, sistemas e aplicativos personalizados." />
+    <!-- Altere para o domínio real após publicar -->
+    <link rel="canonical" href="https://bearflow.com.br/" />
+
+    <!-- ── Open Graph (Facebook / LinkedIn / WhatsApp) ── -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bearflow.com.br/" />
+    <meta property="og:site_name" content="Bear Flow" />
+    <meta property="og:title" content="Bear Flow | Desenvolvimento de Software sob Medida" />
+    <meta property="og:description" content="Desenvolvemos sites, sistemas e aplicativos personalizados para pequenas e médias empresas — com IA, Flutter e Python. Proximidade real, resultado concreto." />
+    <meta property="og:image" content="https://bearflow.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bear Flow — Desenvolvimento de Software sob Medida" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- ── Twitter Card ── -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bear Flow | Desenvolvimento de Software sob Medida" />
+    <meta name="twitter:description" content="Desenvolvemos sites, sistemas e aplicativos personalizados para pequenas e médias empresas — com IA, Flutter e Python." />
+    <meta name="twitter:image" content="https://bearflow.com.br/og-image.png" />
+
+    <!-- ── JSON-LD Structured Data ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://bearflow.com.br/#organization",
+          "name": "Bear Flow",
+          "url": "https://bearflow.com.br",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://bearflow.com.br/bearlogo.png"
+          },
+          "description": "Desenvolvimento de sites, sistemas web e aplicativos mobile personalizados para pequenas e médias empresas.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-45-99810-1887",
+            "contactType": "customer service",
+            "availableLanguage": "Portuguese"
+          },
+          "sameAs": ["https://wa.me/5545998101887"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://bearflow.com.br/#website",
+          "url": "https://bearflow.com.br",
+          "name": "Bear Flow",
+          "inLanguage": "pt-BR",
+          "publisher": { "@id": "https://bearflow.com.br/#organization" }
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Bear Flow",
+          "url": "https://bearflow.com.br",
+          "telephone": "+55-45-99810-1887",
+          "description": "Desenvolvimento de software sob medida: sites, sistemas web e aplicativos mobile com Flutter, Python e Inteligência Artificial.",
+          "serviceType": [
+            "Desenvolvimento Web",
+            "Desenvolvimento de Aplicativos Mobile",
+            "Sistemas Web Personalizados",
+            "Inteligência Artificial",
+            "Visão Computacional"
+          ],
+          "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+          },
+          "priceRange": "$$",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços de Desenvolvimento de Software",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desenvolvimento de Sites Institucionais" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas Web Personalizados" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aplicativos Mobile com Flutter" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soluções com Inteligência Artificial" } }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quanto tempo leva para entregar um projeto?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O prazo varia conforme a complexidade do projeto. Um site institucional costuma ser entregue em 2 a 4 semanas. Sistemas web e aplicativos mobile têm prazo estimado entre 4 e 12 semanas. Após a conversa inicial, apresentamos um cronograma claro antes de qualquer contrato."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como funciona o processo do início ao fim?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Começa com uma conversa para entender o negócio e o problema. Depois criamos um protótipo visual para validar antes de codar. Em seguida o desenvolvimento acontece em ciclos curtos com feedback constante. Por fim, entregamos a solução pronta para uso com documentação e suporte inicial."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Vocês oferecem suporte após a entrega?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. Todo projeto inclui um período de suporte pós-entrega para ajustes e correções. Para projetos contínuos, trabalhamos com contratos de manutenção mensal. O contato é sempre direto — sem fila de suporte, sem intermediários."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Posso solicitar alterações durante o desenvolvimento?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim, e isso é incentivado. Trabalhamos com ciclos curtos para coletar feedback frequente e ajustar a rota quando necessário. Pequenas alterações ao longo do processo são muito mais fáceis do que grandes mudanças no final."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Preciso ter o design pronto para começar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. O design faz parte do processo. Criamos protótipos visuais no Figma — desde wireframes até layouts finais — e você aprova antes do desenvolvimento começar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "A Bear Flow atende empresas de qualquer porte?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O foco da Bear Flow são pequenas e médias empresas — negócios que precisam de soluções eficientes mas não têm estrutura para manter uma equipe de TI interna."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>

@@ -1,0 +1,17 @@
+{
+  "name": "Bear Flow",
+  "short_name": "Bear Flow",
+  "description": "Desenvolvimento de software sob medida para pequenas e médias empresas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "icons": [
+    {
+      "src": "/bearlogo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
