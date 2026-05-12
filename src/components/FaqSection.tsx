@@ -1,10 +1,12 @@
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import AnimatedSection from "./AnimatedSection";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+
+const PlusIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <line x1="6" y1="1" x2="6" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <line x1="1" y1="6" x2="11" y2="6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
 
 const faqs = [
   {
@@ -54,26 +56,41 @@ const FaqSection = () => (
 
       <AnimatedSection delay={0.1}>
         <div className="max-w-2xl mx-auto">
-          <Accordion type="single" collapsible className="w-full">
+          <AccordionPrimitive.Root type="single" collapsible className="w-full">
             {faqs.map((faq, i) => (
-              <AccordionItem
+              <AccordionPrimitive.Item
                 key={i}
                 value={`item-${i}`}
-                className="border-b"
+                className="faq-item border-b"
                 style={{ borderColor: "#21262d" }}
               >
-                <AccordionTrigger
-                  className="font-display font-semibold text-base text-left hover:no-underline py-5"
-                  style={{ color: "#e6edf3" }}
-                >
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionPrimitive.Header className="flex">
+                  <AccordionPrimitive.Trigger className="faq-trigger group flex flex-1 items-center justify-between gap-4 py-5 text-left font-display font-semibold text-base transition-colors duration-150">
+                    {faq.question}
+                    <span
+                      className="faq-plus group-data-[state=open]:rotate-45 shrink-0 grid place-items-center rounded-md"
+                      style={{
+                        width: "26px",
+                        height: "26px",
+                        border: "1px solid #30363d",
+                        background: "#21262d",
+                        transition:
+                          "transform 0.25s cubic-bezier(0.34,1.56,0.64,1), background 0.15s, border-color 0.15s",
+                      }}
+                    >
+                      <PlusIcon />
+                    </span>
+                  </AccordionPrimitive.Trigger>
+                </AccordionPrimitive.Header>
+
+                <AccordionPrimitive.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+                  <p className="pb-5 pt-0 text-base text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </AccordionPrimitive.Content>
+              </AccordionPrimitive.Item>
             ))}
-          </Accordion>
+          </AccordionPrimitive.Root>
         </div>
       </AnimatedSection>
     </div>

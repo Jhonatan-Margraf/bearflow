@@ -121,4 +121,17 @@
     justify-content: center;
     flex-shrink: 0;
   }
+
+  /* FAQ — trigger text color & plus-box open state */
+  .faq-trigger {
+    color: #8b949e;
+  }
+  .faq-trigger:hover,
+  .faq-trigger[data-state="open"] {
+    color: #e6edf3;
+  }
+  .faq-trigger[data-state="open"] .faq-plus {
+    background: rgba(0, 31, 63, 0.45) !important;
+    border-color: rgba(0, 31, 63, 0.7) !important;
+  }
 }
