@@ -44,7 +44,7 @@ const HeroSection = () => (
     />
 
     {/* 2-column split */}
-    <div className="relative z-10 w-full max-w-[1160px] mx-auto px-8 py-20 flex-1 flex items-center">
+    <div className="relative z-10 w-full max-w-[1160px] mx-auto px-4 md:px-8 py-12 md:py-20 flex-1 flex items-center">
       <div className="grid md:grid-cols-2 gap-12 items-center w-full">
 
         {/* Left — text */}
@@ -67,7 +67,7 @@ const HeroSection = () => (
 
           <h1
             className="font-display font-bold leading-[1.06] tracking-tight"
-            style={{ fontSize: "clamp(2.6rem, 4.8vw, 4rem)", color: "#e6edf3" }}
+            style={{ fontSize: "clamp(1.9rem, 4.8vw, 4rem)", color: "#e6edf3" }}
           >
             Força na entrega.<br />
             Fluidez no{" "}

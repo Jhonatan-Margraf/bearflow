@@ -2,7 +2,7 @@ import { AlertTriangle, CheckCircle } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const ProblemSolutionSection = () => (
-  <section className="py-28 bg-card">
+  <section className="py-14 md:py-28 bg-card">
     <div className="container mx-auto px-4">
       <AnimatedSection className="max-w-3xl mx-auto text-center mb-14">
         <h2 className="text-3xl md:text-4xl font-bold font-display">
@@ -30,7 +30,7 @@ const ProblemSolutionSection = () => (
             <div className="grid sm:grid-cols-2">
               {/* Problem */}
               <div
-                className="p-8 border-b sm:border-b-0 sm:border-r"
+                className="p-6 md:p-8 border-b sm:border-b-0 sm:border-r"
                 style={{
                   background: "rgba(120, 30, 30, 0.10)",
                   borderColor: "var(--bd-2)",
@@ -48,7 +48,7 @@ const ProblemSolutionSection = () => (
 
               {/* Solution */}
               <div
-                className="p-8"
+                className="p-6 md:p-8"
                 style={{ background: "rgba(0, 31, 63, 0.22)" }}
               >
                 <CheckCircle className="w-8 h-8 mb-5 highlight" />

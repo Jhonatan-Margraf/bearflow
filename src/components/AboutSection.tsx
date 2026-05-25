@@ -23,7 +23,7 @@ const pillars = [
 ];
 
 const AboutSection = () => (
-  <section id="sobre" className="py-28 bg-background">
+  <section id="sobre" className="py-14 md:py-28 bg-background">
     <div className="container mx-auto px-4">
       <AnimatedSection className="text-center mb-14">
         <p className="text-sm font-semibold highlight uppercase tracking-widest mb-3">Sobre</p>

@@ -28,18 +28,18 @@ const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt,
       }}
     >
       <div
-        className="h-52 border-b overflow-hidden"
+        className="h-40 md:h-52 border-b overflow-hidden"
         style={{ borderColor: "var(--bd-2)", background: "#161b22" }}
       >
         <img
           src={imageSrc}
           alt={imageAlt}
-          className="w-full h-full object-contain object-center p-3 transition-transform duration-500 ease-out group-hover:scale-110"
+          className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
           loading="lazy"
         />
       </div>
 
-      <div className="p-7 flex flex-col flex-1">
+      <div className="p-5 md:p-7 flex flex-col flex-1">
         <h3 className="text-lg font-bold font-display mb-3 gradient-text">{headline}</h3>
         <p className="text-muted-foreground mb-5 text-base leading-relaxed">{description}</p>
 
@@ -80,7 +80,7 @@ const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt,
 );
 
 const CasesSection = () => (
-  <section id="cases" className="py-28 bg-background">
+  <section id="cases" className="py-14 md:py-28 bg-background">
     <div className="container mx-auto px-4">
       <AnimatedSection className="text-center mb-16">
         <p className="text-sm font-semibold highlight uppercase tracking-widest mb-3">Portfólio</p>

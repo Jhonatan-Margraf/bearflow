@@ -29,7 +29,7 @@ const steps = [
 ];
 
 const HowItWorksSection = () => (
-  <section id="como-funciona" className="py-28 bg-card">
+  <section id="como-funciona" className="py-14 md:py-28 bg-card">
     <div className="container mx-auto px-4">
       <AnimatedSection className="text-center mb-16">
         <p className="text-sm font-semibold highlight uppercase tracking-widest mb-3">Processo</p>

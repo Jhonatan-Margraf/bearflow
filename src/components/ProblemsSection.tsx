@@ -29,7 +29,7 @@ const items = [
 ];
 
 const ProblemsSection = () => (
-  <section id="solucoes" className="py-28 bg-background">
+  <section id="solucoes" className="py-14 md:py-28 bg-background">
     <div className="container mx-auto px-4">
       <AnimatedSection className="text-center mb-16 max-w-3xl mx-auto">
         <p className="text-sm font-semibold highlight uppercase tracking-widest mb-3">Soluções</p>
@@ -46,7 +46,7 @@ const ProblemsSection = () => (
         {items.map((item, i) => (
           <AnimatedSection key={i} delay={i * 0.1}>
             <div
-              className="rounded-2xl p-7 border transition-colors duration-200 h-full"
+              className="rounded-2xl p-5 md:p-7 border transition-colors duration-200 h-full"
               style={{ background: "var(--bg-2)", borderColor: "var(--bd-2)" }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLDivElement).style.borderColor = "#30363d";

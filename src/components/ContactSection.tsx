@@ -2,7 +2,7 @@ import AnimatedSection from "./AnimatedSection";
 import WhatsAppButton from "./WhatsAppButton";
 
 const ContactSection = () => (
-  <section id="contato" className="py-28 bg-card">
+  <section id="contato" className="py-14 md:py-28 bg-card">
     <div className="container mx-auto px-4">
       <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
         {/* Left — text + CTA */}
