@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import TiltCard from "./TiltCard";
+import SpotlightCard from "./SpotlightCard";
+import Magnetic from "./Magnetic";
 import appPrint from "@/assets/app.png";
 import sistemaPrint from "@/assets/sistema.png";
 import webPrint from "@/assets/Web.png";
@@ -12,14 +15,15 @@ interface CaseCardProps {
   imageSrc: string;
   imageAlt: string;
   delay: number;
+  href?: string;
 }
 
-const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt, delay }: CaseCardProps) => (
-  <AnimatedSection delay={delay}>
+const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt, delay, href }: CaseCardProps) => {
+  const cardContent = (
     <motion.div
       whileHover={{ y: -5 }}
       className="group rounded-2xl overflow-hidden border transition-colors duration-200 h-full flex flex-col"
-      style={{ background: "var(--bg-2)", borderColor: "var(--bd-2)" }}
+      style={{ background: "var(--bg-2)", borderColor: "var(--bd-2)", cursor: href ? "pointer" : "default" }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLDivElement).style.background = "#21262d";
       }}
@@ -28,7 +32,7 @@ const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt,
       }}
     >
       <div
-        className="h-40 md:h-52 border-b overflow-hidden"
+        className="h-40 md:h-52 border-b overflow-hidden relative"
         style={{ borderColor: "var(--bd-2)", background: "#161b22" }}
       >
         <img
@@ -37,10 +41,17 @@ const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt,
           className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
           loading="lazy"
         />
+        {href && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="text-white text-sm font-semibold tracking-wide flex items-center gap-2">
+              Ver projeto <span className="text-lg">↗</span>
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="p-5 md:p-7 flex flex-col flex-1">
-        <h3 className="text-lg font-bold font-display mb-3 gradient-text">{headline}</h3>
+        <h3 className="text-lg font-bold font-display gradient-text mb-3">{headline}</h3>
         <p className="text-muted-foreground mb-5 text-base leading-relaxed">{description}</p>
 
         <div className="mb-5">
@@ -74,10 +85,53 @@ const CaseCard = ({ headline, description, features, values, imageSrc, imageAlt,
             ))}
           </ul>
         </div>
+
+        {href && (
+          <div className="px-5 md:px-7 pb-5 md:pb-7 pt-4 flex justify-center">
+            <Magnetic strength={0.25}>
+              <span
+                className="inline-flex items-center gap-2 font-semibold text-base px-7 py-3 rounded-full border transition-colors duration-200"
+                style={{ color: "#e6edf3", borderColor: "var(--bd-2)" }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLSpanElement).style.borderColor = "hsl(217,93%,65%)";
+                  (e.currentTarget as HTMLSpanElement).style.color = "hsl(217,93%,65%)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLSpanElement).style.borderColor = "var(--bd-2)";
+                  (e.currentTarget as HTMLSpanElement).style.color = "#e6edf3";
+                }}
+              >
+                Ver projeto ↗
+              </span>
+            </Magnetic>
+          </div>
+        )}
       </div>
     </motion.div>
-  </AnimatedSection>
-);
+  );
+
+  return (
+    <AnimatedSection delay={delay} className="h-full">
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: delay * 2 }}
+        className="h-full"
+      >
+      <TiltCard className="h-full">
+        <SpotlightCard className="rounded-2xl overflow-hidden h-full">
+          {href ? (
+            <a href={href} target="_blank" rel="noopener noreferrer" className="block h-full">
+              {cardContent}
+            </a>
+          ) : (
+            cardContent
+          )}
+        </SpotlightCard>
+      </TiltCard>
+      </motion.div>
+    </AnimatedSection>
+  );
+};
 
 const CasesSection = () => (
   <section id="cases" className="py-14 md:py-28 bg-background">
@@ -92,6 +146,7 @@ const CasesSection = () => (
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         <CaseCard
           delay={0.1}
+          href="/peso-na-granja/"
           headline="Inteligência artificial aplicada à suinocultura."
           description="Aplicativo mobile para gestão completa de granjas com visão computacional para estimativa de peso de suínos por imagem em tempo real."
           features={[
@@ -111,6 +166,7 @@ const CasesSection = () => (
         />
         <CaseCard
           delay={0.2}
+          href="/mecanica-demo/"
           headline="Adeus ao papel. Bem-vindo à organização digital."
           description="Sistema web para oficinas mecânicas que precisam organizar clientes e serviços de forma eficiente."
           features={[
@@ -130,6 +186,7 @@ const CasesSection = () => (
         />
         <CaseCard
           delay={0.3}
+          href="https://dareu.vercel.app/"
           headline="Presença digital para uma startup de desafios."
           description="Desenvolvimento do site para a plataforma DareU, uma startup focada em desafios lúdicos e engajamento digital."
           features={[

@@ -1,6 +1,33 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Shield, Zap, Code2, Users } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
+import InteractiveDotGrid from "./InteractiveDotGrid";
+import Magnetic from "./Magnetic";
+import { useEffectFlag } from "@/config/effects";
+
+/** Brilho radial navy que segue o cursor dentro do hero. */
+const HeroSpotlight = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const onMove = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--sx", `${e.clientX - rect.left}px`);
+    el.style.setProperty("--sy", `${e.clientY - rect.top}px`);
+  };
+  return (
+    <div
+      ref={ref}
+      onMouseMove={onMove}
+      className="absolute inset-0 pointer-events-none z-[1]"
+      style={{
+        background:
+          "radial-gradient(360px circle at var(--sx, -999px) var(--sy, -999px), rgba(0,31,63,0.28), transparent 70%)",
+      }}
+    />
+  );
+};
 
 const features = [
   {
@@ -25,10 +52,17 @@ const features = [
   },
 ];
 
-const HeroSection = () => (
+const HeroSection = () => {
+  const shimmer = useEffectFlag("titleShimmer");
+  const spotlight = useEffectFlag("heroSpotlight");
+
+  return (
   <section id="home" className="relative min-h-screen flex flex-col justify-center bg-background overflow-hidden pt-16">
-    {/* Dot grid */}
-    <div className="dot-grid" />
+    {/* Dot grid interativo */}
+    <InteractiveDotGrid />
+
+    {/* Spotlight do cursor */}
+    {spotlight && <HeroSpotlight />}
 
     {/* Glow top-right */}
     <div
@@ -71,7 +105,7 @@ const HeroSection = () => (
           >
             Força na entrega.<br />
             Fluidez no{" "}
-            <span className="gradient-text">processo.</span>
+            <span className={shimmer ? "title-shimmer" : "gradient-text"}>processo.</span>
           </h1>
 
           <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
@@ -80,7 +114,10 @@ const HeroSection = () => (
           </p>
 
           <div className="flex flex-wrap gap-3 items-center">
-            <WhatsAppButton size="default" />
+            <Magnetic>
+              <WhatsAppButton size="default" />
+            </Magnetic>
+            <Magnetic>
             <a
               href="#cases"
               className="inline-flex items-center gap-1.5 font-medium text-base px-6 py-3 rounded-full border transition-colors duration-200"
@@ -99,6 +136,7 @@ const HeroSection = () => (
             >
               Ver projetos →
             </a>
+            </Magnetic>
           </div>
         </motion.div>
 
@@ -156,6 +194,7 @@ const HeroSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default HeroSection;

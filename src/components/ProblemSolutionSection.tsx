@@ -1,13 +1,16 @@
 import { AlertTriangle, CheckCircle } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import ScrollReveal from "./ScrollReveal";
 
 const ProblemSolutionSection = () => (
   <section className="py-14 md:py-28 bg-card">
     <div className="container mx-auto px-4">
       <AnimatedSection className="max-w-3xl mx-auto text-center mb-14">
         <h2 className="text-3xl md:text-4xl font-bold font-display">
-          Seu negócio ainda depende de{" "}
-          <span className="gradient-text">processos manuais?</span>
+          <ScrollReveal
+            text="Seu negócio ainda depende de processos manuais?"
+            highlight="processos manuais?"
+          />
         </h2>
       </AnimatedSection>
 

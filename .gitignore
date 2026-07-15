@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Demos embutidas (fontes) — os builds servidos ficam versionados em
+# public/mecanica-demo e public/peso-na-granja. Aqui ignoramos só o que é
+# gerado/pesado das pastas-fonte. (node_modules/dist já cobertos acima.)
+mecanica-next/.next
+mecanica-next/out
+pesonagranja_vite/dist
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

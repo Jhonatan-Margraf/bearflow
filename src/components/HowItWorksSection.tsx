@@ -1,5 +1,9 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageSquare, Layout, Code2, Rocket } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import ScrollReveal from "./ScrollReveal";
+import { useEffectFlag } from "@/config/effects";
 
 const steps = [
   {
@@ -28,13 +32,22 @@ const steps = [
   },
 ];
 
-const HowItWorksSection = () => (
+const HowItWorksSection = () => {
+  const beamOn = useEffectFlag("tracingBeam");
+  const stepsRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: stepsRef,
+    offset: ["start 0.8", "center 0.55"],
+  });
+  const beamScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
   <section id="como-funciona" className="py-14 md:py-28 bg-card">
     <div className="container mx-auto px-4">
       <AnimatedSection className="text-center mb-16">
         <p className="text-sm font-semibold highlight uppercase tracking-widest mb-3">Processo</p>
         <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
-          Como funciona o <span className="gradient-text">desenvolvimento</span>
+          <ScrollReveal text="Como funciona o desenvolvimento" highlight="desenvolvimento" />
         </h2>
         <p className="text-muted-foreground text-base leading-relaxed max-w-xl mx-auto">
           Criar um sistema, aplicativo ou site não precisa ser complicado. O processo é
@@ -46,7 +59,7 @@ const HowItWorksSection = () => (
       <div className="grid xl:grid-cols-[1fr_320px] gap-12 items-center max-w-6xl mx-auto">
 
         {/* Steps grid */}
-        <div className="relative">
+        <div className="relative" ref={stepsRef}>
           {/* Connecting line — only on xl (4-column layout) */}
           <div
             className="hidden xl:block absolute h-px z-0"
@@ -56,7 +69,18 @@ const HowItWorksSection = () => (
               right: "calc(12.5% + 10px)",
               background: "var(--bd-2)",
             }}
-          />
+          >
+            {/* Tracing beam — preenche conforme o scroll */}
+            {beamOn && (
+              <motion.div
+                className="absolute inset-0 origin-left"
+                style={{
+                  scaleX: beamScale,
+                  background: "linear-gradient(90deg, hsl(217,93%,60%), hsl(264,55%,55%))",
+                }}
+              />
+            )}
+          </div>
 
           <div className="grid grid-cols-2 xl:grid-cols-4 gap-8">
             {steps.map((step, i) => (
@@ -119,6 +143,7 @@ const HowItWorksSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default HowItWorksSection;

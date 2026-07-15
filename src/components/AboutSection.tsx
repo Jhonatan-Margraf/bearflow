@@ -1,5 +1,6 @@
 import { Shield, Waves, Handshake } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import AuroraBackground from "./AuroraBackground";
 
 const pillars = [
   {
@@ -23,8 +24,9 @@ const pillars = [
 ];
 
 const AboutSection = () => (
-  <section id="sobre" className="py-14 md:py-28 bg-background">
-    <div className="container mx-auto px-4">
+  <section id="sobre" className="relative py-14 md:py-28 bg-background overflow-hidden">
+    <AuroraBackground />
+    <div className="container relative z-10 mx-auto px-4">
       <AnimatedSection className="text-center mb-14">
         <p className="text-sm font-semibold highlight uppercase tracking-widest mb-3">Sobre</p>
         <h2 className="text-3xl md:text-4xl font-bold font-display">

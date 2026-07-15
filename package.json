@@ -10,10 +10,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "demos:build": "npm run demos:mecanica && npm run demos:granja",
+    "demos:mecanica": "npm --prefix mecanica-next run build && rm -rf public/mecanica-demo && cp -r mecanica-next/out public/mecanica-demo",
+    "demos:granja": "npm --prefix pesonagranja_vite run build && rm -rf public/peso-na-granja && cp -r pesonagranja_vite/dist public/peso-na-granja"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.5.0",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -43,6 +45,7 @@
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tanstack/react-query": "^5.83.0",
+    "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -50,6 +53,7 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.36.0",
     "input-otp": "^1.4.2",
+    "lenis": "^1.3.23",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
